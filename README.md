@@ -1,12 +1,12 @@
 # ⚽ SquadMaster - Dünya Efsaneleri Kadro Yönetim Otomasyonu
 
-Bu dökümantasyon, **Web Tasarım Dersi Final Ödevi** kapsamında geliştirilen "SquadMaster" projesinin mimari yapısını, kullanılan teknolojileri ve ödev isterlerine yönelik teknik çözümleri en ince ayrıntısına kadar açıklamaktadır.
+Bu dökümantasyon, **Web Tasarım Dersi Ödevi** kapsamında geliştirilen "SquadMaster" projesinin mimari yapısını, kullanılan teknolojileri ve ödev isterlerine yönelik teknik çözümleri en ince ayrıntısına kadar açıklamaktadır.
 
 ---
 
 ## 📂 BÖLÜM 1: Proje Sahibi ve Geliştirici Bilgileri
 * **Geliştirici Adı Soyadı:** Caner Mercan
-* **Proje Statüsü:** Bireysel Final Projesi
+* **Proje Statüsü:** Dönem İçi Web Tasarım Ödevi
 * **Proje Teması:** Dünya Futbol Tarihindeki 32 Efsane Oyuncunun CRUD Paneli
 
 ---
@@ -48,7 +48,7 @@ Projede statik hiçbir HTML kartı bulunmamaktadır. Arayüz tamamen kullanıcı
 Sistem, Single Page Application (SPA) prensiplerine uygun olarak 4 temel veri tabanı işlemini tarayıcı yenilenmeden simüle eder:
 1. **CREATE (Ekleme):** Yeni oyuncu formu doldurulduğunda, veriler API'ye `POST` metoduyla gönderilir. Başarılı yanıt (HTTP 201) alındığında, yeni oyuncu nesnesi yerel diziye ve arayüze `unshift()` edilerek en üste eklenir.
 2. **READ (Listeleme):** Sayfa ilk açıldığında `DOMContentLoaded` olayı ile asenkron istek tetiklenir, spinner aktif edilir ve veriler responsive kartlar halinde listelenir.
-3. **UPDATE (Güncelleme):** `Düzenle` butonuna basıldığında ilgili oyuncunun ID'si üzerinden mevcut bilgileri yakalanıp forma basılır. Form yeniden gönderildiğinde API'ye `PUT` metodu simüle edilir ve yerel dizideki eleman güncellenerek DOM manipülasyonu ile kart anında yenilenir.
+3. **UPDATE (Güncelleme):** `Düzenle` butonuna basıldığında ilgili oyuncunun ID'si üzerinden mevcut bilgileri yakalanıp forma basılır. Form yeniden gönderildiğinde API'ye `PUT` metodu simüle edilir ve yerel dizindeki eleman güncellenerek DOM manipülasyonu ile kart anında yenilenir.
 4. **DELETE (Silme):** `Sözleşmeyi Feshet` butonuna basıldığında pencerede bir `confirm()` doğrulaması açılır. Kullanıcı onay verirse API'ye `DELETE` isteği atılır ve oyuncu yerel diziden `.filter()` metoduyla ayıklanarak DOM'dan tamamen kaldırılır.
 
 ---
