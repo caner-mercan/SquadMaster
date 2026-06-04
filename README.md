@@ -1,12 +1,12 @@
 # ⚽ SquadMaster - Dünya Efsaneleri Kadro Yönetim Uygulaması
 
-Bu dökümantasyon, **Web Tasarım Dersi Ödevi** kapsamında geliştirilen "SquadMaster" web uygulamasının mimari yapısını, kullanılan teknolojileri ve ödev isterlerine yönelik teknik çözümleri en ince ayrıntısına kadar açıklamaktadır.
+Bu dökümantasyon, **Web Tasarım Ödevi** kapsamında geliştirilen "SquadMaster" web uygulamasının mimari yapısını, kullanılan teknolojileri ve ödev isterlerine yönelik teknik çözümleri en ince ayrıntısına kadar açıklamaktadır.
 
 ---
 
 ## 📂 BÖLÜM 1: Ödev Sahibi ve Geliştirici Bilgileri
 * **Geliştirici Adı Soyadı:** Caner Mercan
-* **Ödev Statüsü:** Web Tasarım Dersi Dönem İçi Ödevi
+* **Ödev Statüsü:** Web Tasarım Ödevi
 * **Ödev Teması:** Dünya Futbol Tarihindeki 32 Efsane Oyuncunun CRUD Paneli
 
 ---
@@ -38,8 +38,9 @@ Geleneksel, tarayıcıyı kilitleyen ve kod okunabilirliğini düşüren asenkro
 ## 💻 BÖLÜM 5: Dinamik DOM Manipülasyonu ve Event Listeners
 Ödevde statik hiçbir HTML kartı bulunmamaktadır. Arayüz tamamen kullanıcı etkileşimlerine göre anlık olarak inşa edilir:
 * **Dinamik Element Üretimi:** API'den veri geldikçe veya yeni eleman eklendikçe `document.createElement()`, `querySelector()`, `appendChild()` ve şablon dizileri (Template Literals) kullanılarak DOM ağacı gerçek zamanlı manipüle edilir.
-* **Olay Dinleyicileri (Event Management):** * Form gönderimlerinde sayfa yenilenmesini engellemek için `submit` olayında `e.preventDefault()` kontrolü kullanılmıştır.
-  * Arama ve filtreleme işlemleri için butonlarda `click`, arama çubuğunda ise anlık tetiklenen `input` olayları dinlenmektedir.
+* **Olay Dinleyicileri (Event Management):** 
+  * Form gönderimlerinde sayfa yenilenmesini engellemek için `submit` olayında `e.preventDefault()` kontrolü kullanılmıştır.
+  * Arama ve filtreleme işlemleri için butonlarda `click`, arama çubuğunda ise anlık tetiklenen `input` olayları dinmenmektedir.
 
 ---
 
