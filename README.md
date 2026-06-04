@@ -78,4 +78,4 @@ Kullanıcıların web sitesindeki yapılandırma tercihleri, tarayıcı oturumu 
 ## 📱 BÖLÜM 10: Esnek (Responsive) Tasarım ve Yayın
 * **Responsive Grid Sistemi:** CSS Grid `repeat(auto-fill, minmax(280px, 1fr))` yapısı sayesinde ekran boyutu ne olursa olsun kartlar taşma yapmadan otomatik olarak hizalanır. Mobil cihazlarda dikey tekli sütun düzenine, geniş ekranlarda ise yan yana 4'lü matris düzenine kusursuz geçiş sağlanır.
 * **Canlı Yayın (Deployment):** Ödevin tüm kaynak kodları derlenmiş ve sürekli entegrasyon (CI/CD) altyapısına sahip **Netlify** platformu üzerinde canlıya alınmıştır.
-* **Canlı Önizleme Adresi:** 👉 **[Netlify Canlı Site Linkini Buraya Yapıştır Kral]**
+* **Canlı Önizleme Adresi:** 👉 **https://golden-manatee-ac45a6.netlify.app/**
