@@ -1,4 +1,4 @@
-# ⚽ SquadMaster - Dünya Efsaneleri Kadro Yönetim Otomasyonu
+# ⚽ SquadMaster - Dünya Efsaneleri Kadro Yönetim Uygulaması
 
 Bu dökümantasyon, **Web Tasarım Dersi Ödevi** kapsamında geliştirilen "SquadMaster" web uygulamasının mimari yapısını, kullanılan teknolojileri ve ödev isterlerine yönelik teknik çözümleri en ince ayrıntısına kadar açıklamaktadır.
 
@@ -59,4 +59,22 @@ Kullanıcı deneyimini (UX) en üst seviyeye çıkarmak için kombine çalışan
 
 ---
 
-## 💾 BÖLÜM 8: Kalıcı Durum Yönet
+## 💾 BÖLÜM 8: Kalıcı Durum Yönetimi (LocalStorage Entegrasyonu)
+Kullanıcıların web sitesindeki yapılandırma tercihleri, tarayıcı oturumu kapansa dahi korunacak şekilde tasarlanmıştır:
+* **Veri Depolama:** Kullanıcı Gece/Gündüz modu butonuna bastığında, seçilen temanın aktiflik durumu (Örn: `theme: dark`) `localStorage.setItem()` metodu ile tarayıcının yerel depolama alanına string olarak yazılır.
+* **Veri Okuma ve State Başlatma:** Sayfa her yüklendiğinde JavaScript ilk olarak `localStorage.getItem()` kontrolü yapar. Eğer kullanıcı daha önce "Dark Mode" seçmişse, HTML `body` etiketine ilgili CSS sınıfı daha sayfa tamamen render edilmeden eklenir. Böylece sayfa açılışında göz kırpma (flickering) efekti önlenir.
+
+---
+
+## 🌗 BÖLÜM 9: Kullanıcı Arayüzü Dinamikleri (Dark Mode, Spinner & Toast)
+Ödev dökümanında ekstra puan kategorisinde yer alan tüm kullanıcı dostu arayüz elementleri sıfırdan kodlanmıştır:
+* **Dark Mode (Gece Modu):** CSS mimarisinde tanımlanan kök değişkenler (`:root`), gövdeye `.dark-theme` sınıfı geldiğinde saniyeler içinde yeni kontrast renk kodlarına evrilir. Tasarımda geçiş yumuşaklığı için `transition: all 0.3s ease` kullanılmıştır.
+* **Asenkron Loading Spinner:** API sunucusundan yanıt beklenen asenkron süreçte (`fetch` başlama anı), CSS keyframes animasyonları ile dönen bir yükleme çarkı arayüze basılır. İstek başarılı veya başarısız sonuçlansa dahi `finally` bloğu içinde bu spinner DOM'dan temizlenir.
+* **Dinamik Toast Bildirimleri:** CRUD işlemlerinin tamamında, sayfanın sağ üst köşesinde animasyonlu bildirim kutuları (Toast) belirir. Bu kutular 3 saniye sonra JavaScript `setTimeout` mekanizması ile kendi kendini DOM'dan imha eder (Self-destruction).
+
+---
+
+## 📱 BÖLÜM 10: Esnek (Responsive) Tasarım ve Yayın
+* **Responsive Grid Sistemi:** CSS Grid `repeat(auto-fill, minmax(280px, 1fr))` yapısı sayesinde ekran boyutu ne olursa olsun kartlar taşma yapmadan otomatik olarak hizalanır. Mobil cihazlarda dikey tekli sütun düzenine, geniş ekranlarda ise yan yana 4'lü matris düzenine kusursuz geçiş sağlanır.
+* **Canlı Yayın (Deployment):** Ödevin tüm kaynak kodları derlenmiş ve sürekli entegrasyon (CI/CD) altyapısına sahip **Netlify** platformu üzerinde canlıya alınmıştır.
+* **Canlı Önizleme Adresi:** 👉 **[Netlify Canlı Site Linkini Buraya Yapıştır Kral]**
