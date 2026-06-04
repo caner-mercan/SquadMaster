@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SquadMaster // Dünya Efsaneleri Kadro Yönetimi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <h1>⚽ SquadMaster <span class="sub-logo">// Dünya Efsaneleri Veri Tabanı</span></h1>
+            <button id="theme-toggle" class="btn-theme">🌙 Gece Modu</button>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="controls-panel">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Efsane futbolcu adı veya özellik ara...">
+            </div>
+            
+            <div class="filter-tags">
+                <button class="btn-filter active" data-category="all">⚽ Tüm Mevkiler</button>
+                <button class="btn-filter" data-category="kaleci">🧤 Kaleci</button>
+                <button class="btn-filter" data-category="defans">🛡️ Defans</button>
+                <button class="btn-filter" data-category="orta-saha">🧠 Orta Saha</button>
+                <button class="btn-filter" data-category="forvet">🔥 Forvet</button>
+            </div>
+
+            <button id="btn-open-modal" class="btn-primary">+ Yeni Efsane Ekle</button>
+        </section>
+
+        <div id="loading" class="loading-spinner hidden">
+            <div class="spinner"></div>
+            <p>Canlı veri tabanına bağlanılıyor, efsaneler yükleniyor...</p>
+        </div>
+
+        <section id="posts-container" class="posts-grid">
+            </section>
+    </main>
+
+    <div id="post-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Efsane Oyuncu Kayıt Formu</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <form id="post-form">
+                <input type="hidden" id="post-id"> 
+                
+                <div class="form-group">
+                    <label for="form-title">Futbolcu Adı ve Soyadı</label>
+                    <input type="text" id="form-title" placeholder="Örn: Zinedine Zidane, Pelé" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="form-body">Oyuncu Teknik Analizi / Detaylar</label>
+                    <textarea id="form-body" rows="6" placeholder="Oyuncunun ülkesini, öne çıkan yeteneklerini ve kariyer başarılarını yazın..." required></textarea>
+                </div>
+                
+                <button type="submit" id="btn-submit" class="btn-submit">Veri Tabanına Kaydet</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
