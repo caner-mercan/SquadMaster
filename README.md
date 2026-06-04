@@ -1,29 +1,29 @@
 # ⚽ SquadMaster - Dünya Efsaneleri Kadro Yönetim Otomasyonu
 
-Bu dökümantasyon, **Web Tasarım Dersi Ödevi** kapsamında geliştirilen "SquadMaster" projesinin mimari yapısını, kullanılan teknolojileri ve ödev isterlerine yönelik teknik çözümleri en ince ayrıntısına kadar açıklamaktadır.
+Bu dökümantasyon, **Web Tasarım Dersi Ödevi** kapsamında geliştirilen "SquadMaster" web uygulamasının mimari yapısını, kullanılan teknolojileri ve ödev isterlerine yönelik teknik çözümleri en ince ayrıntısına kadar açıklamaktadır.
 
 ---
 
-## 📂 BÖLÜM 1: Proje Sahibi ve Geliştirici Bilgileri
+## 📂 BÖLÜM 1: Ödev Sahibi ve Geliştirici Bilgileri
 * **Geliştirici Adı Soyadı:** Caner Mercan
-* **Proje Statüsü:** Dönem İçi Web Tasarım Ödevi
-* **Proje Teması:** Dünya Futbol Tarihindeki 32 Efsane Oyuncunun CRUD Paneli
+* **Ödev Statüsü:** Web Tasarım Dersi Dönem İçi Ödevi
+* **Ödev Teması:** Dünya Futbol Tarihindeki 32 Efsane Oyuncunun CRUD Paneli
 
 ---
 
 ## 🛠️ BÖLÜM 2: Kullanılan Teknolojiler ve Versiyon Kontrolü
-Projenin ön yüz mimarisi ve versiyon takibi tamamen modern web standartlarına ve endüstriyel pratiklere uygun olarak yapılandırılmıştır:
+Ödevin ön yüz mimarisi ve versiyon takibi tamamen modern web standartlarına ve endüstriyel pratiklere uygun olarak yapılandırılmıştır:
 * **HTML5:** Anlamsal (Semantic) etiketler kullanılarak SEO ve erişilebilirlik standartlarına uygun arayüz iskeleti.
 * **CSS3:** Tamamen özelleştirilmiş CSS Değişkenleri (CSS Variables), Flexbox ve Grid sistemleri ile modüler stil yönetimi.
 * **Modern JavaScript (ES6+):** Nesne yönelimli ve asenkron programlama pratikleri.
-* **Git & GitHub:** Projenin tüm geliştirme süreçleri lokalde Git yazılımı ile takip edilmiş ve GitHub üzerinde herkese açık (Public) olarak uzak depoya aktarılmıştır.
+* **Git & GitHub:** Ödevin tüm geliştirme süreçleri lokalde Git yazılımı ile takip edilmiş ve GitHub üzerinde herkese açık (Public) olarak uzak depoya aktarılmıştır.
 
 ---
 
 ## 📥 BÖLÜM 3: Public API Entegrasyonu Mimarisi
 Ödev dökümanında belirtilen dış kaynaklı veri tüketimi için **JSONPlaceholder** REST API servisleri entegre edilmiştir:
 * **Uç Nokta (Endpoint):** `https://jsonplaceholder.typicode.com/posts`
-* **Veri Tüketim Stratejisi:** API'den gelen ham metinsel veriler (`title` ve `body`), projenin konseptine uygun olarak JavaScript tarafında dinamik bir veri harmanlama (Data Mapping) işlemine tabi tutulmuştur. 
+* **Veri Tüketim Stratejisi:** API'den gelen ham metinsel veriler (`title` ve `body`), ödevin konseptine uygun olarak JavaScript tarafında dinamik bir veri harmanlama (Data Mapping) işlemine tabi tutulmuştur. 
 * **Data Mapping:** API'den dönen her nesne, yerel veri havuzundaki futbolcuların mevkileri (`category`), takımları ve gerçek istatistikleri ile eşleştirilerek anlamlı birer "Efsane Oyuncu Kartı" formuna dönüştürülür.
 
 ---
@@ -36,10 +36,9 @@ Geleneksel, tarayıcıyı kilitleyen ve kod okunabilirliğini düşüren asenkro
 ---
 
 ## 💻 BÖLÜM 5: Dinamik DOM Manipülasyonu ve Event Listeners
-Projede statik hiçbir HTML kartı bulunmamaktadır. Arayüz tamamen kullanıcı etkileşimlerine göre anlık olarak inşa edilir:
+Ödevde statik hiçbir HTML kartı bulunmamaktadır. Arayüz tamamen kullanıcı etkileşimlerine göre anlık olarak inşa edilir:
 * **Dinamik Element Üretimi:** API'den veri geldikçe veya yeni eleman eklendikçe `document.createElement()`, `querySelector()`, `appendChild()` ve şablon dizileri (Template Literals) kullanılarak DOM ağacı gerçek zamanlı manipüle edilir.
-* **Olay Dinleyicileri (Event Management):** 
-  * Form gönderimlerinde sayfa yenilenmesini engellemek için `submit` olayında `e.preventDefault()` kontrolü kullanılmıştır.
+* **Olay Dinleyicileri (Event Management):** * Form gönderimlerinde sayfa yenilenmesini engellemek için `submit` olayında `e.preventDefault()` kontrolü kullanılmıştır.
   * Arama ve filtreleme işlemleri için butonlarda `click`, arama çubuğunda ise anlık tetiklenen `input` olayları dinlenmektedir.
 
 ---
@@ -60,22 +59,4 @@ Kullanıcı deneyimini (UX) en üst seviyeye çıkarmak için kombine çalışan
 
 ---
 
-## 💾 BÖLÜM 8: Kalıcı Durum Yönetimi (LocalStorage Entegrasyonu)
-Kullanıcıların web sitesindeki yapılandırma tercihleri, tarayıcı oturumu kapansa dahi korunacak şekilde tasarlanmıştır:
-* **Veri Depolama:** Kullanıcı Gece/Gündüz modu butonuna bastığında, seçilen temanın aktiflik durumu (Örn: `theme: dark`) `localStorage.setItem()` metodu ile tarayıcının yerel depolama alanına string olarak yazılır.
-* **Veri Okuma ve State Başlatma:** Sayfa her yüklendiğinde JavaScript ilk olarak `localStorage.getItem()` kontrolü yapar. Eğer kullanıcı daha önce "Dark Mode" seçmişse, HTML `body` etiketine ilgili CSS sınıfı daha sayfa tamamen render edilmeden eklenir. Böylece sayfa açılışında göz kırpma (flickering) efekti önlenir.
-
----
-
-## 🌗 BÖLÜM 9: Kullanıcı Arayüzü Dinamikleri (Dark Mode, Spinner & Toast)
-Ödev dökümanında ekstra puan kategorisinde yer alan tüm kullanıcı dostu arayüz elementleri sıfırdan kodlanmıştır:
-* **Dark Mode (Gece Modu):** CSS mimarisinde tanımlanan kök değişkenler (`:root`), gövdeye `.dark-theme` sınıfı geldiğinde saniyeler içinde yeni kontrast renk kodlarına evrilir. Tasarımda geçiş yumuşaklığı için `transition: all 0.3s ease` kullanılmıştır.
-* **Asenkron Loading Spinner:** API sunucusundan yanıt beklenen asenkron süreçte (`fetch` başlama anı), CSS keyframes animasyonları ile dönen bir yükleme çarkı arayüze basılır. İstek başarılı veya başarısız sonuçlansa dahi `finally` bloğu içinde bu spinner DOM'dan temizlenir.
-* **Dinamik Toast Bildirimleri:** CRUD işlemlerinin tamamında, sayfanın sağ üst köşesinde animasyonlu bildirim kutuları (Toast) belirir. Bu kutular 3 saniye sonra JavaScript `setTimeout` mekanizması ile kendi kendini DOM'dan imha eder (Self-destruction).
-
----
-
-## 📱 BÖLÜM 10: Esnek (Responsive) Tasarım ve Deployment
-* **Responsive Grid Sistemi:** CSS Grid `repeat(auto-fill, minmax(280px, 1fr))` yapısı sayesinde ekran boyutu ne olursa olsun kartlar taşma yapmadan otomatik olarak hizalanır. Mobil cihazlarda dikey tekli sütun düzenine, geniş ekranlarda ise yan yana 4'lü matris düzenine kusursuz geçiş sağlanır.
-* **Canlı Yayın (Deployment):** Projenin tüm kaynak kodları derlenmiş ve sürekli entegrasyon (CI/CD) altyapısına sahip **Netlify** platformu üzerinde canlıya alınmıştır.
-* **Canlı Önizleme Adresi:** 👉 **[Netlify Canlı Site Linkini Buraya Yapıştır Kral]**
+## 💾 BÖLÜM 8: Kalıcı Durum Yönet
