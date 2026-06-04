@@ -2,9 +2,8 @@
 
 Bu proje, **Web Tasarım dersi final ödevi** kriterlerine %100 uyumlu olarak; `JSONPlaceholder` Public API'si üzerinden asenkron veri çeken, gelişmiş filtreleme ve kullanıcı dostu arayüz özelliklerine sahip, tam donanımlı bir **Kadro Yönetim Sistemi (CRUD)** otomasyonudur.
 
-## 👥 Geliştiriciler & Proje Sahipleri
+## 👤 Geliştirici & Proje Sahibi
 * **Caner Mercan**
-* **Hamza Uludağ**
 
 ---
 
@@ -31,23 +30,4 @@ Proje, veri tabanı yönetiminin temel yapı taşı olan 4 ana operasyonu da tar
 
 ### 📱 4. Tasarım: Responsive ve Kullanıcı Dostu (UX/UI)
 * **CSS Grid & Flexbox:** Arayüz, modern CSS teknikleriyle örülmüştür. Mobil cihazlarda tekli kart sütunu, tabletlerde ikili, masaüstü büyük ekranlarda ise 3'lü ve 4'lü esnek ızgara (`grid-template-columns: repeat(auto-fill, minmax(...))`) yapısına geçerek kusursuz bir responsive deneyim sunar.
-* **Mevki Renk Kodlaması:** Kullanıcı dostu arayüz kapsamında her oyuncunun mevkisi kendine has bir tema rengiyle (Forvet: Ateş Kırmızısı, Orta Saha: Zümrüt Yeşili, Defans: Çelik Mavisi, Kaleci: Asil Mor) sol şerit olarak kartlara işlenmiştir.
-
----
-
-## ⚡ EKSTRA PUAN GETİRECEK ÖZELLİKLER (BONUS MADDELER)
-
-Hocamızın ödev metninde belirttiği tüm ekstra puan kriterleri projeye titizlikle dahil edilmiştir:
-
-* 🔍 **Arama Sistemi:** Arama kutusuna yazılan her harf anlık olarak dinlenir (`input` event). JavaScript, oyuncuların isimlerini (`title`), teknik analiz dökümanlarını (`body`) ve mevkilerini (`category`) `.toLowerCase()` ile süzerek anlık (real-time) arama gerçekleştirir.
-* 🎛️ **Filtreleme Sistemi:** Üst konsolda yer alan mevki butonları (`data-category`), arama motoruyla kombine çalışır. Örneğin kullanıcı "Forvet" butonuna basıp arama kutusuna "M" yazdığında sadece ismi M ile başlayan forvetler listelenir.
-* 💾 **LocalStorage Teknolojisi:** Kullanıcının sitede yaptığı Gece/Gündüz modu seçimi tarayıcının yerel hafızasında (`localStorage.setItem`) saklanır. Sayfa kapatılıp açılsa dahi kullanıcının tercih ettiği tema otomatik olarak yüklenir (`localStorage.getItem`).
-* 🌗 **Dark Mode (Gece Modu):** Tek bir buton tetiklemesiyle tüm CSS değişkenleri (`--bg-color`, `--text-color` vb.) saniyeler içinde siber bir gece temasına evrilir. Gözü yormayan modern kontrast ayarları yapılmıştır.
-* ⏳ **Loading Animasyonu:** API'den veri çekilirken internet hızına bağlı oluşabilecek gecikmelerde kullanıcının sitenin donduğunu düşünmemesi için CSS ile tasarlanmış modern bir **Yükleme Çarkı (Spinner)** ve "Veri tabanına bağlanılıyor..." bildirimi asenkron işlem bitene kadar ekranda gösterilir (`finally` bloğu ile gizlenir).
-* 🔔 **Toast Mesajları:** Sitede yapılan her başarılı veya hatalı işlemden sonra (Örn: "Yeni efsane başarıyla eklendi!", "Oyuncu sözleşmesi feshedildi!") sağ üst köşede 3 saniye sonra kayarak kaybolan zarif animasyonlu siber bildirim pencereleri (Toast) belirir.
-
----
-
-## 🚀 Canlı Sürüm (Deployment)
-Projenin derlenmiş, canlı ve test edilebilir web sürümüne aşağıdaki bağlantıdan ulaşabilirsiniz:
-👉 **[Buraya Netlify Canlı Site Linkini Yapıştır Kral]**
+* **Mevki Renk Kodlaması:** Kullanıcı dostu arayüz kapsamında her oyuncunun mevkisi kendine has bir tema rengiyle (Forvet: Ateş Kırmızısı, Orta Saha: Zümrüt Yeşili, Defans: Çelik
